@@ -5,7 +5,9 @@
     <bean id="userDao" class="cn.cecurio.frame.spring.dao.impl.UserDaoImpl"/>
 
     <bean id="userService" class="cn.cecurio.frame.spring.service.impl.UserServiceImpl">
-        <property name="userDaoPrefix" ref="userDao"/>
+        <property name="userDaoPrefix">
+            <ref bean="userDao"></ref>
+        </property>
 
         <!-- name为构造函数的形参-->
         <constructor-arg name="userDaoConstructor" ref="userDao"></constructor-arg>
